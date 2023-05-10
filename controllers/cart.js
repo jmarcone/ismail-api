@@ -2,7 +2,7 @@ const cartModel = require("../models/cart");
 
 const getCart = async (req, res) => {
     try {
-        const rows = await cartModel.getAll();
+        const rows = await cartModel.getCart();
         res.json(rows);
     } catch (err) {
         console.error(err);
@@ -12,7 +12,7 @@ const getCart = async (req, res) => {
 
 const addToCart = async (req, res) => {
     try {
-        const { product_id, quantity } = req.params;
+        const { product_id, quantity } = req.body;
         const cart = await cartModel.addToCart(product_id, quantity);
         
         res.json(cart);

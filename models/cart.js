@@ -1,12 +1,11 @@
 const pool = require("../db/pg");
 
 const getCart = async() => {
-    const { rows: cartItems } = await pool.query(
-        "SELECT * FROM cart",
-        [product_id, quantity]
+    const { rows: cart } = await pool.query(
+        "SELECT * FROM cart"
     );
 
-    return cartItem;
+    return cart;
 }
 
 const addToCart = async (product_id, quantity = 1) => {
